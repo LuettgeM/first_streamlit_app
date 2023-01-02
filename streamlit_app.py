@@ -25,10 +25,10 @@ def get_fruit_load_list(my_cnx):
         my_cur.execute("SELECT * FROM fruit_load_list")
         return my_cur.fetchall()
     
- def insert_row_snowflake(my_cnx, new_fruit):
-     with my_cnx.cursor() as my_cur:
-         my_cur.execute("INSERT INTO fruit_load_list values ('" + new_fruit + "');")
-     return "Thanks for adding " + add_my_fruit
+def insert_row_snowflake(my_cnx, new_fruit):
+    with my_cnx.cursor() as my_cur:
+        my_cur.execute("INSERT INTO fruit_load_list values ('" + new_fruit + "');")
+    return "Thanks for adding " + add_my_fruit
 
 # Let's put a pick list here so they can pick the fruit they want to include 
 fruits_selected = streamlit.multiselect("Pick some fruits:", list(my_fruit_list.index),["Avocado","Strawberries"])
