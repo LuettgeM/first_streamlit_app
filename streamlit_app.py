@@ -43,11 +43,10 @@ fruityvice_normalized = get_fruityvice_data(fruit_choice)
 # show data table
 streamlit.dataframe(fruityvice_normalized)
 
-
+streamlit.header("The fruit load list contains:")
 if streamlit.button("Get fruit load list"):
     my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
     my_data_rows = get_fruit_load_list(my_cnx)
-    streamlit.header("The fruit load list contains:")
     streamlit.dataframe(my_data_rows)
 
 add_my_fruit = streamlit.text_input('What fruit would you like to add?', "jackfruit")
